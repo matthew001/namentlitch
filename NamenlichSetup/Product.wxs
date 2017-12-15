@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="a45f42a4-f6e5-4bfa-acaf-0cbb1dc236cb" Name="NamenlichSetup" Language="1033" Version="1.0.0.0" Manufacturer="NamenlichSetup" UpgradeCode="e768c23e-0032-4fd7-bcb5-a52f962c9de7">
+		<Package InstallerVersion="200" Compressed="yes" />
+
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    
+    <Property Id="ALLUSERS"><![CDATA[2]]></Property>
+    <!-- For all users shortcuts-->
+
+    <UIRef Id="WixUI_InstallDir" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.SolutionDir)\InstallImages\WixUIBannerBmp.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.SolutionDir)\InstallImages\WixUIDialogBmp.jpg" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="Mossharbor">
+          <Directory Id="APPLICATIONROOTDIRECTORY" Name="Namentlich">
+          <Component Id='Exe' Guid='050CA29A-4346-487b-AA84-04BFD2ECDDF9'>
+            <File Id='NamentlichExe' LongName='Namentlich.exe' DiskId='1' Source="$(var.SolutionDir)\namentlitch\bin\$(var.Configuration)\Namentlich.exe" Vital='yes'>
+
+              <!--<Shortcut Id="startmenunamentlich" Directory="ProgramMenuDir" Name="Foobar10"
+                LongName="NamenLich" WorkingDirectory='APPLICATIONROOTDIRECTORY'
+                Icon="$(var.SolutionDir)\Images\MovieApp.ico" IconIndex="0" />-->
+
+              <!--<Shortcut Id="desktopnamentlitch" Directory="DesktopFolder" Name="Foobar10"
+                LongName="NamentLitch" WorkingDirectory='INSTALLDIR'
+                Icon="MovieApp.ico" IconIndex="0" />-->
+            </File>
+          </Component>
+          </Directory>
+				</Directory>
+			</Directory>
+    
+    <Directory Id="ProgramMenuFolder">
+      <!--<Directory Id="MossharborFolder" Name="Mossharbor">-->
+      <Directory Id="ApplicationProgramsFolder" Name="Mosssharbor"/>
+      <!--</Directory>-->
+    </Directory>
+    </Directory>
+
+    <!-- Short Cuts -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="{A4ECD0CB-608B-4525-97BD-14C3DBC47F8E}">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Namenlich"
+                  Description="Image Renaming Program"
+                  Target="[APPLICATIONROOTDIRECTORY]Namentlich.exe"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY">
+          <Icon Id="ICON" SourceFile="$(var.SolutionDir)\Images\MovieApp.ico"/>
+        </Shortcut>
+        <!--<RemoveFolder Id="MossharborFolder" On="uninstall"/>-->
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Mossharbor\Namentlich" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONROOTDIRECTORY" />
+
+    <Feature Id="ProductFeature" Title="Namentlich" Level="1">
+      <ComponentRef Id="Exe" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentGroupRef Id="Product.Generated" />
+    </Feature>
+	</Product>
+</Wix>

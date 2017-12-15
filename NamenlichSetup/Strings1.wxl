@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <!-- This blanks out the strings to the images can show the way.-->
+  <String Id="WelcomeDlgDescription"></String>
+  <String Id="WelcomeDlgTitle" Overridable="yes"></String>
+  <String Id="WelcomeUpdateDlgDescriptionUpdate" Overridable="yes"></String>
+  <String Id="UserExitTitle" Overridable="yes"></String>
+  <String Id="UserExitDescription1" Overridable="yes"></String>
+  <String Id="UserExitDescription2" Overridable="yes"></String>
+  <String Id="WelcomeEulaDlgTitle" Overridable="yes"></String>
+  <String Id="LicenseAgreementDlgTitle" Overridable="yes"></String>
+  <String Id="LicenseAgreementDlgDescription" Overridable="yes"></String>
+  <String Id="InstallDirDlgDescription" Overridable="yes"></String>
+  <String Id="InstallDirDlgTitle" Overridable="yes"></String>
+  <String Id="VerifyReadyDlgInstallTitle" Overridable="yes"></String>
+  <String Id="ExitDialogTitle" Overridable="yes"></String>
+  <String Id="ProgressDlgTitleInstalling" Overridable="yes"></String>
+  <String Id="UserExitDescription2" Overridable="yes"></String>
+  <String Id="ExitDialogDescription" Overridable="yes"></String>
+  <String Id="ExitDialogTitle" Overridable="yes"></String>
+  <String Id="Advanced_Font_FaceName" Overridable="yes">
+    <!-- _locID_text="Advanced_Font_FaceName" _locComment="Advanced_Font_FaceName" -->Papyrus
+  </String>
+  <String Id="Advanced_Font_Normal_Size" Overridable="yes">
+    <!-- _locID_text="Advanced_Font_Normal_Size" _locComment="Advanced_Font_Normal_Size" -->12
+  </String>
+</WixLocalization>
